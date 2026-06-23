@@ -1,0 +1,16 @@
+{
+    "title": "Hive",
+    "slug": "hive",
+    "year": "2026",
+    "description": "Microservices based Multi-Vendor E-Commerce SaaS Platform",
+    "tagline": "Scalable Multi Vendor Commerce Platform",
+
+    "coverImage": "/projects/hive/cover.png",
+
+    "github": "https://github.com/maitrekpatel1612/hive",
+    "liveUrl": "https://hive.maitrekpatel.in",
+
+    "highlights": ["Microservices", "Kafka", "Redis", "AWS"],
+
+    "technologies": ["Next.js", "Kafka", "Redis", "MongoDB"]
+}
