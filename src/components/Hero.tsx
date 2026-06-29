@@ -40,7 +40,7 @@ export default function Hero() {
                         </a>
 
                         <a
-                            href="https://drive.google.com/file/d/1gCnBFZXNDGC6QLUhJYS5fn-kr3uSt6jK/view?usp=sharing"
+                            href="https://maitrekpatel.in/Maitrek_Patel.pdf"
                             target="_blank"
                             className="px-8 py-4 rounded-xl border border-zinc-700 hover:border-zinc-500 transition"
                         >
