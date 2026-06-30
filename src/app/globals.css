@@ -81,8 +81,7 @@ html {
 
   -webkit-text-stroke: 2px rgb(161 161 170);
 
-  background:
-    linear-gradient(90deg,
+  background: linear-gradient(90deg,
       transparent 0%,
       transparent 40%,
       rgba(255, 255, 255, 0.15) 47%,
@@ -99,6 +98,13 @@ html {
   animation: footer-shine 10s ease-in-out infinite;
 }
 
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-logo {
+    -webkit-text-stroke: 0.5px rgb(161 161 170);
+  }
+}
+
 @keyframes footer-shine {
   0% {
     background-position: -150% center;
@@ -108,4 +114,3 @@ html {
     background-position: 150% center;
   }
 }
-
