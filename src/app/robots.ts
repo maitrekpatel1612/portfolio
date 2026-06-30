@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: "*",
             allow: "/",
         },
-        sitemap: "https://maitrekpatel.in/sitemap.xml",
-        host: "https://maitrekpatel.in",
+        sitemap: "https://www.maitrekpatel.in/sitemap.xml",
+        host: "https://www.maitrekpatel.in",
     };
 }
