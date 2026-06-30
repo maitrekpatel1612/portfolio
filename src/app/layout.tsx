@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import PersonSchema from "@/components/PersonSchema";
 
 const siteUrl = "https://maitrekpatel.in";
 
@@ -134,6 +135,7 @@ export default function RootLayout({
         <html lang="en">
             <head>
                 <GoogleAnalytics />
+                <PersonSchema />
             </head>
             <body>{children}</body>
         </html>
