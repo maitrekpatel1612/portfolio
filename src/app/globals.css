@@ -101,7 +101,7 @@ html {
 /* Mobile */
 @media (max-width: 768px) {
   .footer-logo {
-    -webkit-text-stroke: 0.5px rgb(161 161 170);
+    -webkit-text-stroke: 1px rgb(161 161 170);
   }
 }
 
