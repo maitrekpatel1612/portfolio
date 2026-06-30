@@ -40,22 +40,6 @@ export default function Projects({ projects }: ProjectsProps) {
                         Featured Projects
                     </h2>
 
-                    <p
-                        className="
-                            mt-4
-
-                            max-w-2xl
-
-                            text-sm
-                            md:text-lg
-
-                            text-zinc-500
-                        "
-                    >
-                        Products, platforms and engineering systems built across
-                        SaaS, AI, cloud-native infrastructure and distributed
-                        architectures.
-                    </p>
                 </div>
 
                 {/* Grid */}

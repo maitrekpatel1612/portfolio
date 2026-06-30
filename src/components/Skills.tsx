@@ -19,17 +19,7 @@ export default function Skills() {
                 {/* Header */}
 
                 <div className="mb-16 md:mb-20">
-                    <p
-                        className="
-                            text-zinc-500
-                            uppercase
-                            tracking-[0.3em]
-                            text-xs
-                            mb-4
-                        "
-                    >
-                        Skills
-                    </p>
+                
 
                     <h2
                         className="
