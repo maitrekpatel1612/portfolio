@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,232 +12,89 @@ interface ProjectsProps {
     projects: Project[];
 }
 
-export default function Projects({ projects }: ProjectsProps) {
+function Projects({ projects }: ProjectsProps) {
     return (
-        <section
-            id="projects"
-            className="
-                py-20
-                md:py-32
-
-                px-5
-                md:px-6
-            "
-        >
+        <section id="projects" className="py-20 md:py-32 px-5 md:px-6">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
-
                 <div className="mb-14 md:mb-20">
-                    <h2
-                        className="
-                            text-4xl
-                            md:text-6xl
-
-                            font-bold
-                            tracking-tight
-                        "
-                    >
+                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
                         Featured Projects
                     </h2>
-
                 </div>
 
-                {/* Grid */}
-
-                <div
-                    className="
-                        grid
-
-                        gap-6
-                        md:gap-8
-
-                        md:grid-cols-2
-                        xl:grid-cols-3
-                    "
-                >
-                    {projects.map((project) => (
-                        <motion.article
+                <div className="grid gap-6 md:gap-8 md:grid-cols-2 xl:grid-cols-3">
+                    {projects.map((project, index) => (
+                        <article
                             key={project.slug}
-                            whileHover={{
-                                y: -6,
-                            }}
-                            transition={{
-                                duration: 0.25,
-                            }}
                             className="
                                 group
-
                                 flex
                                 flex-col
-
                                 overflow-hidden
-
                                 rounded-[28px]
-
                                 border
                                 border-white/10
-
-                                bg-white/[0.02]
-
-                                backdrop-blur-xl
-
-                                shadow-[0_0_40px_rgba(255,255,255,0.03)]
-
-                                hover:border-white/15
-
-                                transition-all
+                                bg-white/[0.03]
+                                shadow-lg
+                                transition-transform
                                 duration-300
+                                hover:-translate-y-1.5
+                                hover:border-white/20
                             "
                         >
-                            {/* Image */}
-
-                            <div
-                                className="
-                                    relative
-
-                                    h-52
-                                    md:h-56
-
-                                    overflow-hidden
-                                "
-                            >
+                            <div className="relative h-52 md:h-56 overflow-hidden">
                                 <Image
                                     src={project.coverImage}
                                     alt={project.title}
                                     fill
-                                    sizes="
-                                        (max-width:768px) 100vw,
-                                        (max-width:1024px) 50vw,
-                                        400px
-                                    "
+                                    priority={index < 2}
+                                    loading={index < 2 ? "eager" : "lazy"}
+                                    sizes="(max-width:768px) 100vw, (max-width:1024px) 50vw, 400px"
                                     className="
                                         object-cover
-
                                         transition-transform
-                                        duration-700
-
+                                        duration-500
                                         group-hover:scale-105
                                     "
                                 />
 
-                                <div
-                                    className="
-                                        absolute
-                                        inset-0
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
-                                        bg-gradient-to-t
-                                        from-black
-                                        via-black/40
-                                        to-transparent
-                                    "
-                                />
-
-                                <div
-                                    className="
-                                        absolute
-                                        bottom-4
-                                        left-4
-                                    "
-                                >
-                                    <span
-                                        className="
-                                            px-3
-                                            py-1
-
-                                            rounded-full
-
-                                            border
-                                            border-white/10
-
-                                            bg-black/40
-                                            backdrop-blur-xl
-
-                                            text-[11px]
-
-                                            text-zinc-300
-                                        "
-                                    >
+                                <div className="absolute bottom-4 left-4">
+                                    <span className="px-3 py-1 rounded-full border border-white/10 bg-black/60 text-[11px] text-zinc-300">
                                         {project.year}
                                     </span>
                                 </div>
                             </div>
 
-                            {/* Content */}
-
-                            <div
-                                className="
-                                    flex
-                                    flex-col
-                                    flex-1
-
-                                    p-5
-                                    md:p-6
-                                "
-                            >
+                            <div className="flex flex-col flex-1 p-5 md:p-6">
                                 <div>
-                                    <h3
-                                        className="
-                                            text-xl
-                                            md:text-2xl
-
-                                            font-bold
-
-                                            mb-3
-                                        "
-                                    >
+                                    <h3 className="text-xl md:text-2xl font-bold mb-3">
                                         {project.title}
                                     </h3>
 
-                                    <p
-                                        className="
-                                            text-sm
-                                            md:text-base
-
-                                            leading-6
-                                            md:leading-7
-
-                                            text-zinc-400
-                                        "
-                                    >
+                                    <p className="text-sm md:text-base leading-6 md:leading-7 text-zinc-400">
                                         {project.description}
                                     </p>
                                 </div>
 
-                                {/* Highlights */}
-
                                 {project.highlights && (
-                                    <div
-                                        className="
-                                            flex
-                                            flex-wrap
-
-                                            gap-1.5
-
-                                            mt-5
-                                        "
-                                    >
+                                    <div className="flex flex-wrap gap-1.5 mt-5">
                                         {project.highlights
                                             .slice(0, 4)
                                             .map((item) => (
                                                 <span
                                                     key={item}
                                                     className="
-                                                            px-2.5
-                                                            py-1
-
-                                                            rounded-full
-
-                                                            text-[11px]
-
-                                                            border
-                                                            border-white/10
-
-                                                            bg-white/[0.03]
-
-                                                            backdrop-blur-xl
-
-                                                            text-zinc-300
-                                                        "
+                                                        px-2.5
+                                                        py-1
+                                                        rounded-full
+                                                        text-[11px]
+                                                        border
+                                                        border-white/10
+                                                        bg-white/[0.04]
+                                                        text-zinc-300
+                                                    "
                                                 >
                                                     {item}
                                                 </span>
@@ -245,92 +102,51 @@ export default function Projects({ projects }: ProjectsProps) {
                                     </div>
                                 )}
 
-                                {/* Technologies */}
-
-                                <div
-                                    className="
-                                        flex
-                                        flex-wrap
-
-                                        gap-1.5
-
-                                        mt-4
-                                    "
-                                >
+                                <div className="flex flex-wrap gap-1.5 mt-4">
                                     {project.technologies
                                         .slice(0, 6)
                                         .map((tech) => (
                                             <span
                                                 key={tech}
                                                 className="
-                                                        px-2.5
-                                                        py-1
-
-                                                        rounded-full
-
-                                                        text-[11px]
-                                                        md:text-xs
-
-                                                        border
-                                                        border-white/10
-
-                                                        bg-white/[0.03]
-
-                                                        backdrop-blur-xl
-
-                                                        text-zinc-400
-
-                                                        transition-all
-
-                                                        hover:bg-white/[0.05]
-                                                        hover:text-zinc-200
-                                                    "
+                                                    px-2.5
+                                                    py-1
+                                                    rounded-full
+                                                    text-[11px]
+                                                    md:text-xs
+                                                    border
+                                                    border-white/10
+                                                    bg-white/[0.04]
+                                                    text-zinc-400
+                                                    transition-colors
+                                                    hover:bg-white/[0.08]
+                                                    hover:text-zinc-200
+                                                "
                                             >
                                                 {tech}
                                             </span>
                                         ))}
                                 </div>
 
-                                {/* Footer */}
-
-                                <div
-                                    className="
-                                        mt-auto
-
-                                        pt-6
-                                    "
-                                >
-                                    <div
-                                        className="
-                                            flex
-
-                                            gap-2
-                                        "
-                                    >
+                                <div className="mt-auto pt-6">
+                                    <div className="flex gap-2">
                                         <Link
                                             href={`/projects/${project.slug}`}
+                                            prefetch
                                             className="
                                                 flex-1
-
                                                 inline-flex
                                                 items-center
                                                 justify-center
                                                 gap-2
-
                                                 h-11
-
                                                 rounded-xl
-
                                                 bg-white
-
                                                 text-black
-
                                                 text-sm
                                                 font-medium
-
+                                                transition-opacity
                                                 hover:opacity-90
-
-                                                transition
                                             "
                                         >
                                             Case Study
@@ -344,25 +160,16 @@ export default function Projects({ projects }: ProjectsProps) {
                                             className="
                                                 h-11
                                                 w-11
-
                                                 shrink-0
-
                                                 inline-flex
                                                 items-center
                                                 justify-center
-
                                                 rounded-xl
-
                                                 border
                                                 border-white/10
-
-                                                bg-white/[0.03]
-
-                                                backdrop-blur-xl
-
-                                                hover:bg-white/[0.05]
-
-                                                transition
+                                                bg-white/[0.04]
+                                                hover:bg-white/[0.08]
+                                                transition-colors
                                             "
                                         >
                                             <FiGithub />
@@ -374,31 +181,19 @@ export default function Projects({ projects }: ProjectsProps) {
                                             rel="noopener noreferrer"
                                             className="
                                                 h-11
-
                                                 px-4
-
                                                 shrink-0
-
                                                 inline-flex
                                                 items-center
                                                 justify-center
-
                                                 gap-2
-
                                                 rounded-xl
-
                                                 border
                                                 border-white/10
-
-                                                bg-white/[0.03]
-
-                                                backdrop-blur-xl
-
+                                                bg-white/[0.04]
                                                 text-sm
-
-                                                hover:bg-white/[0.05]
-
-                                                transition
+                                                hover:bg-white/[0.08]
+                                                transition-colors
                                             "
                                         >
                                             Live
@@ -407,10 +202,12 @@ export default function Projects({ projects }: ProjectsProps) {
                                     </div>
                                 </div>
                             </div>
-                        </motion.article>
+                        </article>
                     ))}
                 </div>
             </div>
         </section>
     );
 }
+
+export default memo(Projects);

@@ -75,8 +75,8 @@ export default async function ProjectPage({
                             alt={metadata.title}
                             className="
                                 w-full
-                                h-[450px]
-                                md:h-[550px]
+                                h-112.5
+                                md:h-137.5
                                 object-cover
                                 transition-transform
                                 duration-700
